@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Users>
+  <User ID="123">
+    <hoTen>Nguyễn Đức Tín</hoTen>
+    <tenDangNhap>Tinabc</tenDangNhap>
+    <matKhau>123456</matKhau>
+  </User>
+  <User>
+    <hoTen>Đỗ Tấn Từ</hoTen>
+    <tenDangNhap>Tudo</tenDangNhap>
+    <matKhau>123</matKhau>
+  </User>
+</Users>
