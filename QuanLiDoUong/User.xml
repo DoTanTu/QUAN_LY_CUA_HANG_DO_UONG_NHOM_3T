@@ -5,9 +5,14 @@
     <tenDangNhap>Tinabc</tenDangNhap>
     <matKhau>123456</matKhau>
   </User>
-  <User>
-    <hoTen>Đỗ Tấn Từ</hoTen>
-    <tenDangNhap>Tudo</tenDangNhap>
+  <User ID="12345">
+    <hoTen>Từ</hoTen>
+    <tenDangNhap>Tu</tenDangNhap>
     <matKhau>123</matKhau>
+  </User>
+  <User ID="2311202221571">
+    <hoTen>r</hoTen>
+    <tenDangNhap>r</tenDangNhap>
+    <matKhau>r</matKhau>
   </User>
 </Users>

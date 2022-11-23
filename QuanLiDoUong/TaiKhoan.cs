@@ -56,10 +56,56 @@ namespace QuanLiDoUong
                     new XElement("tenDangNhap", txtUserName.Text),
                     new XElement("matKhau", txtPass.Text));
 
-                var lastUser = testXML.Descendants("User").Last();
-                long newID = Convert.ToInt64(lastUser.Attribute("ID").Value);
-                //newUser.SetAttributeValue("ID",);
+                
+                newUser.SetAttributeValue("ID",id);
                 testXML.Element("Users").Add(newUser);
+                testXML.Save(path);
+                TaiKhoan_Load(sender, e);
+            }
+            catch(Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach(ListViewItem item in listView1.SelectedItems)
+            {
+                lblID.Text = item.SubItems[0].Text;
+                txtTen.Text = item.SubItems[1].Text;
+                txtUserName.Text = item.SubItems[2].Text;
+                txtPass.Text = item.SubItems[3].Text;
+
+            }
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                XDocument testXML = XDocument.Load(path);
+                XElement cSUser = testXML.Descendants("User").Where(c => c.Attribute("ID").Value.Equals(lblID.Text)).FirstOrDefault();
+                cSUser.Remove();
+                testXML.Save(path);
+                TaiKhoan_Load(sender, e);
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                XDocument testXML = XDocument.Load(path);
+                XElement cSUser = testXML.Descendants("User").Where(c => c.Attribute("ID").Value.Equals(lblID.Text)).FirstOrDefault();
+                cSUser.Element("hoTen").Value = txtTen.Text;
+                cSUser.Element("tenDangNhap").Value = txtUserName.Text;
+                cSUser.Element("matKhau").Value = txtPass.Text;
                 testXML.Save(path);
                 TaiKhoan_Load(sender, e);
             }
